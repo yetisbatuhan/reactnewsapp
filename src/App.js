@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Main from './components/Main/main';
 import {  Routes,  Route} from "react-router-dom";
 import Business from './pages/Business';
 import Entertainment from './pages/Entertainment';
@@ -9,7 +8,6 @@ import Science from './pages/Science';
 import General from './pages/General';
 import Sports from './pages/Sports';
 import Technology from './pages/Technology';
-import Header from './components/Header/Header';
 import Search from './pages/Search';
 
 
@@ -22,6 +20,7 @@ function App() {
     
         <Routes>
           <Route path='/' element={<General />} />
+          <Route path='/reactnewsapp' element={<General />} />
           <Route path='/Business' element={<Business />} />
           <Route path='/Entertainment' element={<Entertainment />} />
           <Route path='/Health' element={<Health />} />
