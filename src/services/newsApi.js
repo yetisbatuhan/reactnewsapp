@@ -1,12 +1,16 @@
 import axios from 'axios';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const BASE_URL = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=' + API_KEY;
+const BASE_URL = 'https://newsapi.org/v2/top-headlines?country=us';
 const MAIN_URL = 'https://newsapi.org/v2/everything';
 
 const fetchTopHeadlines = async () => {
   try {
-    const response = await axios.get(BASE_URL);
+    const response = await axios.get(BASE_URL, {
+      params: {
+        apiKey: API_KEY,
+      },
+    });
     return response.data.articles;
   } catch (error) {
     console.error('Error fetching top headlines:', error);
@@ -29,7 +33,9 @@ const mainNews = async (query) => {
   }
 };
 
-export default {
+const newsApi = {
   fetchTopHeadlines,
-  mainNews
+  mainNews,
 };
+
+export default newsApi;
